@@ -1,0 +1,25 @@
+
+<div class = "content">
+  <p>CREATE TASKLIST:</p>
+  <div>
+    <input type="text" [(ngModel)]="name" />
+    <button (click)="createTaskList()">Create</button>
+  </div>
+  
+  <p>TASKLISTS</p>
+  <div class="tasklists">
+    <div *ngFor="let taskList of tasklists">
+      <span (click)="getTasks(taskList)">
+        <input type="text" [(ngModel)]="taskList.name" />
+      </span>
+      <button style="color: red" (click)="deleteTaskList(taskList)"> Удалить</button>
+      <button style="color: green" (click)="updateTaskList(taskList)"> Изменить</button>
+    </div>
+  </div>
+  
+  <br/>
+  <p>TASKS:</p>
+  <div class = "tasks">
+    <div *ngFor="let task of tasks">{{task.id}} - {{task.name}} - {{task.created_at}} - {{task.due_on}} - {{task.status}}</div>
+  </div>
+</div>
